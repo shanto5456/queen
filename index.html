@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My One and Only</title>
+    <style>
+        :root {
+            --bg-color: #fdf5f7;
+            --primary-pink: #ff8fa3;
+            --text-grey: #555;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-grey);
+            overflow-x: hidden;
+            text-align: center;
+        }
+
+        .section {
+            display: none;
+            min-height: 100vh;
+            padding: 20px;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        .active { display: flex; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 { color: #d63384; font-size: 2rem; margin-bottom: 10px; }
+        p { font-size: 1.1rem; }
+
+        .btn {
+            background-color: var(--primary-pink);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-top: 20px;
+            transition: transform 0.2s;
+        }
+
+        .btn:hover { transform: scale(1.05); }
+
+        /* Gallery Grid */
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .memory-card {
+            background: white;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .memory-card img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        /* Quiz Styles */
+        .quiz-box {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            width: 90%;
+            max-width: 350px;
+        }
+
+        .quiz-option {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .quiz-option:hover { background-color: #fff0f3; }
+
+        /* Floating Animation for "No" Button */
+        #no-btn { position: relative; }
+
+        .final-letter {
+            max-width: 500px;
+            line-height: 1.6;
+            text-align: left;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-pink);
+        }
+
+        .gif-img { width: 150px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+
+    <div id="section1" class="section active">
+        <p>TO MY ONE AND ONLY</p>
+        <h1>Get Ready For<br>Something Special</h1>
+        <img src="xxxxxx" alt="Cute GIF" class="gif-img"> <button class="btn" onclick="nextSection(2)">START THE JOURNEY 💖</button>
+    </div>
+
+    <div id="section2" class="section">
+        <h1>Our 6 Special Memories</h1>
+        <div class="memory-grid">
+            <div class="memory-card"><img src="xxxxxx" alt="Memory 1"><p>Where it started</p></div>
+            <div class="memory-card"><img src="xxxxxx" alt="Memory 2"><p>Your favorite smile</p></div>
+            <div class="memory-card"><img src="xxxxxx" alt="Memory 3"><p>That crazy night</p></div>
+            <div class="memory-card"><img src="xxxxxx" alt="Memory 4"><p>Summer vibes</p></div>
+            <div class="memory-card"><img src="xxxxxx" alt="Memory 5"><p>Best date ever</p></div>
+            <div class="memory-card"><img src="xxxxxx" alt="Memory 6"><p>Forever to go</p></div>
+        </div>
+        <button class="btn" onclick="nextSection(3)">NEXT: THE LOVE TEST ✨</button>
+    </div><div id="section3" class="section">
+        <div class="quiz-box">
+            <p id="quiz-question">Quiz #1: Who is the funniest in the relationship? 😂</p>
+            <button class="quiz-option" onclick="nextQuiz()">Me!</button>
+            <button class="quiz-option" onclick="nextQuiz()">You (when you're hungry) 🙄</button>
+            <button class="quiz-option" onclick="nextQuiz()">Both of us!</button>
+        </div>
+    </div>
+
+    <div id="section4" class="section">
+        <img src="xxxxxx" alt="Love GIF" class="gif-img"> <h1>Will you be my girl for the next 100 years? 💍</h1>
+        <div style="display: flex; gap: 20px;">
+            <button class="btn" onclick="nextSection(5)">YES! ❤️</button>
+            <button class="btn" id="no-btn" onmouseover="moveButton()">NO 😢</button>
+        </div>
+    </div>
+
+    <div id="section5" class="section">
+        <div class="final-letter">
+            <h2>My Dearest Mim,</h2>
+            <p>Writing this was the easiest thing because when I think of you, words just flow. You are my best friend, my peace, and my favorite person to annoy.</p>
+            <p>On your special day, I want you to know how much I appreciate every little thing you do. You make the world feel brighter.</p>
+            <p>Let's make this year our best adventure yet. I'll be right by your side for every step.</p>
+            <p>With all my love,<br><strong>[Your Name]</strong></p>
+        </div>
+        <button class="btn" onclick="celebrate()">THE FINAL SURPRISE? 🎉</button>
+    </div>
+
+    <div id="section6" class="section">
+        <h1>It's Party Time! 🥳</h1>
+        <img src="xxxxxx" alt="Party GIF" class="gif-img">
+        <button class="btn" onclick="alert('I Love You Forever!')">CLICK FOR A WISH ✨</button>
+    </div>
+
+    <script>
+        function nextSection(id) {
+            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+            document.getElementById('section' + id).classList.add('active');
+            window.scrollTo(0,0);
+        }
+
+        let quizStep = 1;
+        function nextQuiz() {
+            if(quizStep === 1) {
+                document.getElementById('quiz-question').innerText = "Quiz #2: What is my favorite thing about you? ❤️";
+                quizStep++;
+            } else {
+                nextSection(4);
+            }
+        }
+
+        function moveButton() {
+            const btn = document.getElementById('no-btn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        function celebrate() {
+            nextSection(6);
+            // Optional: You can add a confetti effect library here if you like
+        }
+    </script>
+</body>
+</html>
